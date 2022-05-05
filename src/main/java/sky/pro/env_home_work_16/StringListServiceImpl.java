@@ -10,7 +10,7 @@ public class StringListServiceImpl implements StringListService {
     private String[] lists;
 
     public StringListServiceImpl() {
-        this.lists = new String[3];
+        this.lists = new String[4];
         lists[0] = "Tom";
         lists[1] = "Alice";
         lists[2] = "Kate";
@@ -20,6 +20,7 @@ public class StringListServiceImpl implements StringListService {
 
     @Override
     public String add(String item) {
+        String[] lists_ = new String[lists.length];
         boolean f_is = false;
         Integer j = 0;
         for (int i = 0; i < lists.length; i++) {
@@ -27,10 +28,10 @@ public class StringListServiceImpl implements StringListService {
                 f_is = true;
             }
         }
-        if (f_is) {
+        if (f_is = true) {
             return "Дубль";
-        }
-        j = lists.length + 1;
+        } else
+            j = lists.length;
         for (int i = lists.length - 1; i > j; i--) {
             lists[i] = lists[i - 1];
         }
@@ -132,12 +133,13 @@ public class StringListServiceImpl implements StringListService {
         boolean f_is = false;
         Integer j = 0;
         for (int i = lists.length; i >= 0; i--) {
-            if (lists[i] == item) {
+            if (lists[i].equals(item)) {
                 f_is = true;
                 j = i;
             }
+            f_is = false;
         }
-        if (f_is) {
+        if (f_is = true) {
             return j;
         }
         return -1;
@@ -153,7 +155,7 @@ public class StringListServiceImpl implements StringListService {
 
     @Override
     public boolean equals(String[] otherList) {
-        String[] lists_ = new String[3];
+        String[] lists_ = new String[4];
         lists_[0] = "Tom";
         lists_[1] = "Alice";
         lists_[2] = "Kate";
@@ -166,7 +168,8 @@ public class StringListServiceImpl implements StringListService {
 
     @Override
     public int size() {
-        return lists.length;
+        int s = lists.length;
+        return s;
     }
 
     @Override
