@@ -10,7 +10,7 @@ public class StringListServiceImpl implements StringListService {
     private String[] lists;
 
     public StringListServiceImpl() {
-        this.lists = new String[4];
+        this.lists = new String[10];
         lists[0] = "Tom";
         lists[1] = "Alice";
         lists[2] = "Kate";
@@ -20,13 +20,13 @@ public class StringListServiceImpl implements StringListService {
 
     @Override
     public String add(String item) {
-        String[] lists_ = new String[lists.length];
+        String[] lists = new String[10];
         boolean f_is = false;
         Integer j = 0;
         for (int i = 0; i < lists.length; i++) {
             if (lists[i] == item) {
                 f_is = true;
-            }
+            }else f_is = false;
         }
         if (f_is = true) {
             return "Дубль";
@@ -43,7 +43,7 @@ public class StringListServiceImpl implements StringListService {
     public String addIndex(int index, String item) {
         Integer j = 0;
         if (index <= lists.length) {
-            j = lists.length + 1;
+            j = lists.length;
             for (int i = lists.length - 1; i > j; i--) {
                 lists[i] = lists[i - 1];
             }
@@ -57,7 +57,7 @@ public class StringListServiceImpl implements StringListService {
     public String set(int index, String item) {
         if (index <= lists.length) {
             lists[index] = item;
-            return lists[index] = item;
+            return lists[index];
         }
         throw new StringListNotFoundException("Индекс выходит за пределы фактического количества элементов массива");
     }
@@ -75,7 +75,7 @@ public class StringListServiceImpl implements StringListService {
         if (f_is) {
             for (int i = j; i < lists.length - 1; i++) {
                 lists[i] = lists[i + 1];
-                return "Запись удалена " + lists[i];
+                return lists[i];
             }
 
         }
@@ -92,7 +92,7 @@ public class StringListServiceImpl implements StringListService {
                     }
                 }
                 lists = Arrays.copyOf(lists, lists.length - 1);
-                return "Удалена строка: " + lists[index];
+                return lists[index];
             }
         }
         throw new StringListNotFoundException("Индекс выходит за пределы фактического количества элементов массива");
@@ -155,12 +155,12 @@ public class StringListServiceImpl implements StringListService {
 
     @Override
     public boolean equals(String[] otherList) {
-        String[] lists_ = new String[4];
+        /*String[] lists_ = new String[4];
         lists_[0] = "Tom";
         lists_[1] = "Alice";
         lists_[2] = "Kate";
-        lists_[3] = "Sam";
-        if (lists.equals(lists_)) {
+        lists_[3] = "Sam";*/
+        if (lists.equals(otherList)) {
             return true;
         }
         return false;
