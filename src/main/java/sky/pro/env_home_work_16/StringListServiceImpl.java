@@ -20,7 +20,6 @@ public class StringListServiceImpl implements StringListService {
 
     @Override
     public String add(String item) {
-        String[] lists = new String[10];
         boolean f_is = false;
         Integer j = 0;
         for (int i = 0; i < lists.length; i++) {
@@ -77,7 +76,6 @@ public class StringListServiceImpl implements StringListService {
                 lists[i] = lists[i + 1];
                 return lists[i];
             }
-
         }
         return "Нет данных";
     }

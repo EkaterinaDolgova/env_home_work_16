@@ -13,7 +13,7 @@ public class StringListServiceImplTest {
     }
     @Test
     public void StringListTestAddIndex() {
-        assertEquals("Sami", out.addIndex(1,"Sami"));
+        assertEquals("Sami", out.addIndex(6,"Sami"));
     }
     @Test
     public void StringListTestSet() {
